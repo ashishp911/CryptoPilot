@@ -6,11 +6,10 @@ import CoinPage from "./pages/CoinPage";
 import { styled } from "@mui/system";
 
 function App() {
-  
-  const MyComponent = styled('div')({
-    backgroundColor: '#14161a',
-    color: 'white',
-    minHeight:"100vh",
+  const MyComponent = styled("div")({
+    backgroundColor: "#14161a",
+    color: "white",
+    minHeight: "100vh",
     padding: 8,
     borderRadius: 4,
   });
