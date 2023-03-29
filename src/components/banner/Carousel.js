@@ -16,11 +16,12 @@ const Carousel = () => {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-  };
+  }; 
 
   //   Getting the data from coingecko api
   const fetchTrendingData = async () => {
     const { data } = await axios.get(TrendingCoins(currency));
+    // const { data } = await axios.get(options);
     setTrending(data);
   };
 
@@ -29,10 +30,11 @@ const Carousel = () => {
     fetchTrendingData();
   }, [currency]);
 
-  console.log(trending);
+  // console.log(trending);
 
   const items = trending.map((coin) => {
     let profit = coin.price_change_percentage_24h >= 0;
+    console.log(profit);
     return (
       <Link style={carousel} to={`/coins/${coin.id}`}>
         <img
@@ -43,17 +45,18 @@ const Carousel = () => {
         ></img>
         <span>
           &nbsp;
-          {coin.symbol}
-          <span style={{ color:profit > 0 ? "rgb(14, 203, 129)" : "red", fontWeight:500}}>
-            {profit && "+"} {coin.price_change_percentage_24h.toFixed(2)}%
+          {coin?.symbol}
+          <span style={{ color : profit > 0 ? "rgb(14, 203, 129)" : "red", fontWeight:500 }}>
+            {profit==="true" ? "-" : "+"} {coin.price_change_percentage_24h.toFixed(2)}%
           </span>
         </span>
         <span style={{ fontSize: 22, fontWeight: 500 }}>
-          {symbol} {numberWithCommas(coin.current_price.toFixed(2))}
+          {symbol} {numberWithCommas(coin?.current_price?.toFixed(2))}
         </span>
       </Link>
     );
   });
+
   const responsive = {
     0: {
       items: 2,
@@ -74,7 +77,7 @@ const Carousel = () => {
         disableButtonsControls
         responsive={responsive}
         autoPlay
-        items={items}
+        // items={items}
       />
     </div>
   );
