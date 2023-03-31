@@ -44,10 +44,10 @@ const Carousel = () => {
           style={{ marginBottom: 10 }}
         ></img>
         <span>
-          &nbsp;
           {coin?.symbol}
+          &nbsp; 
           <span style={{ color : profit > 0 ? "rgb(14, 203, 129)" : "red", fontWeight:500 }}>
-            {profit==="true" ? "-" : "+"} {coin.price_change_percentage_24h.toFixed(2)}%
+            {profit==="true" ? "-" : "+"}{coin.price_change_percentage_24h.toFixed(2)}%
           </span>
         </span>
         <span style={{ fontSize: 22, fontWeight: 500 }}>
@@ -77,7 +77,7 @@ const Carousel = () => {
         disableButtonsControls
         responsive={responsive}
         autoPlay
-        // items={items}
+        items={items}
       />
     </div>
   );
