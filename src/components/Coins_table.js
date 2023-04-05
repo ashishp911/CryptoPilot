@@ -13,6 +13,7 @@ import {
   TableHead,
   TableRow,
   TableCell,
+  Paper,
   TableBody,
 } from "@mui/material";
 import { Container } from "@mui/system";
@@ -59,11 +60,11 @@ const Coins_table = () => {
   //   Row styling
   const rowStyle = {
     backgroundColor:"#16171a",
-    cursor:"pointer",
     fontFamily: "Montserrat",
-    "&:hover":{
+    '&:hover':{
         backgroundColor:"#131111",
     },
+    cursor:"pointer",
   };
 
   return (
@@ -82,7 +83,7 @@ const Coins_table = () => {
             setSearch(e.target.value);
           }}
         ></TextField>
-        <TableContainer>
+        <TableContainer component={Paper}>
           {loading ? (
             <LinearProgress style={{ backgroundColor: "gold" }} />
           ) : (
@@ -112,8 +113,8 @@ const Coins_table = () => {
                   return (
                     <TableRow
                       key={row.name}
+                      style={rowStyle}
                       onClick={() => navigate(`/coins/${row.id}`)}
-                      //   style={rowStyle}
                     >
                       <TableCell
                         component="th"
