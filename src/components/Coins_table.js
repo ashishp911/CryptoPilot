@@ -37,7 +37,7 @@ const Coins_table = () => {
     setLoading(false);
   };
 
-  console.log(coins);
+  // console.log(coins);
 
   useEffect(() => {
     fetchCoins();
