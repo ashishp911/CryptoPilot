@@ -8,3 +8,7 @@ Write fetchhistorical data, added useEffect so that whenever currency or days ch
 Created darkTheme usinf createTheme
 If historicalData is not present, we show a circularProgress, otherwise the chart.
 
+Created Chart using <Line></Line>, documentation can be found at --> https://react-chartjs-2.js.org/docs/working-with-datasets/
+Converted Labels to proper format is using toLocaleDateString(); || if days > 1, we show the date, else the time.
+In datasets array, we provided the prices from historicalData.map()
+Added  options={{}} to remove the circles from the chart.

@@ -99,6 +99,13 @@ const CoinInfo = (props) => {
                   },
                 ],
               }}
+              options={{
+                elements:{
+                    point:{
+                        radius:1,
+                    }
+                }
+              }}
             ></Line>
           </>
         )}
