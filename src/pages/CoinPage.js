@@ -24,8 +24,8 @@ const CoinPage = () => {
     setCoin(data);
   };
 
-  console.log("YOU ARE HRERE");
-  console.log(coin);
+  // console.log("YOU ARE HRERE");
+  // console.log(coin);
 
   useEffect(() => {
     fetchCoin();
@@ -166,7 +166,7 @@ const CoinPage = () => {
           </div>
         </div>
         {/* Chart */}
-        <CoinInfo />
+        <CoinInfo coin = {coin}/>
       </div>
     </ThemeProvider>
   );

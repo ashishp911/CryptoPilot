@@ -1,0 +1,10 @@
+Chart.js2
+
+install chart.js2 using the following command
+npm i react-chartjs-2 chart.js
+Chart part is done in coinInfo.js. 
+I have used historical_chart api for making charts.
+Write fetchhistorical data, added useEffect so that whenever currency or days change, page should re-render.
+Created darkTheme usinf createTheme
+If historicalData is not present, we show a circularProgress, otherwise the chart.
+
