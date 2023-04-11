@@ -52,6 +52,7 @@ const CoinPage = () => {
       flexDirection: 'column', 
       alignItems: 'center',
     }),
+    marginTop: 50,
   };
 
   const sidebarStyles = {
@@ -68,7 +69,7 @@ const CoinPage = () => {
 
   const headingStyle = {
     fontWeight: "bold",
-    marginBottom: 20,
+    marginBottom: 30,
     fontFamily: "Montserrat",
   };
 
@@ -110,7 +111,7 @@ const CoinPage = () => {
             src={coin?.image.large}
             alt={coin?.name}
             height="200"
-            style={{ marginBottom: 20 }}
+            style={{ marginBottom: 30 }}
           />
           <Typography variant="h3" style={headingStyle}>
             {coin?.name}

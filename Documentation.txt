@@ -12,3 +12,6 @@ Created Chart using <Line></Line>, documentation can be found at --> https://rea
 Converted Labels to proper format is using toLocaleDateString(); || if days > 1, we show the date, else the time.
 In datasets array, we provided the prices from historicalData.map()
 Added  options={{}} to remove the circles from the chart.
+
+added selectButton Field to show the 4 different charts{24 Hours, 30 Days, 3 Months, 1 Year}, getting data from data.js. 
+"&:hover": still not working idk why.
