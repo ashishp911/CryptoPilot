@@ -41,7 +41,7 @@ const Banner = () => {
             CryptoPilot
           </Typography>
           <Typography
-            variant="subtitle2"
+            variant="subtitle1"
             style={{
                 color: "darkgrey",
                 textTransform:"capitalize",
