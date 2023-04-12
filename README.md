@@ -61,5 +61,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/m
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
+<br />
+<br />
+  
+# Getting Started with CryptoPilot
+## 1. Project file layout
+![alt text](https://github.com/ashishp911/Cryptocurrency-Application/blob/main/src/Images/project_file_layout.jpeg)
 
-<!-- ![alt text](https://github.com/ashishp911/Cryptocurrency-Application/blob/main/src/Images/banner2.jpg) -->
+## 2. Create react App 
+```
+npx create-react-app cryptocurrency
+```
