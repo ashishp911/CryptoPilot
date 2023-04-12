@@ -143,8 +143,8 @@ npm i react-alice-carousel
 10. In items, we use the javaScript **object.map()** function to travese all the coins in trending which we fetched from our API.
 11. For the carousel, we add ```<Link></Link>``` tag so that by clicking on the image, we can go to any particular coin.
 12. We add ```<img>``` and ```<span></span>``` tags for image, name, price and 24hr change.
-
-![carousel example](https://github.com/ashishp911/Cryptocurrency-Application/blob/main/src/Images/carousel.png)/
+example of carousel image is given below
+![carousel example](https://github.com/ashishp911/Cryptocurrency-Application/blob/main/src/Images/carousel%20.png)
 
 
 
