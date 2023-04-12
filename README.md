@@ -102,13 +102,16 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 Enclose all the routes of your application between the ```<Routes> </Routes>``` tags. (In our case, homepage and coin_page). 
 Header.js will be outside the routes, so that it will be displayed all through the application.
 
+We change the background color of the entire app to ```"#14161a"``` in app.js
 
+## Header.js
+We use Appbar from material UI and Container(it ensures that the appbar is responsive).
+The appbar will contain Typography(for the title of our application) and a select tag(to select the currency).
+Flex : 1 for our typography indicates that the width of all other elements will be the same as their content, but the element with flex: 1 will be given the remaining full space.
+We wrap whole header with darkTheme.
 
-
-
-
-
-
+## Context API
+Since we want the currency and symbol selected through the header for the entire application, we will use context API. We wrap our entire app within cryptocontext, from index.js. We export {currency, symbol, setCurrency}, so that any component can now use these states.
 
 
 
