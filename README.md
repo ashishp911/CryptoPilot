@@ -66,7 +66,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
   
 # Getting Started with CryptoPilot
 ## 1. Project file layout
-![alt text](https://github.com/ashishp911/Cryptocurrency-Application/blob/main/src/Images/project_file_layout.jpeg)
+![project layout](https://github.com/ashishp911/Cryptocurrency-Application/blob/main/src/Images/project_file_layout.jpeg)
 
 ## Create react App 
 ```
@@ -144,11 +144,7 @@ npm i react-alice-carousel
 11. For the carousel, we add ```<Link></Link>``` tag so that by clicking on the image, we can go to any particular coin.
 12. We add ```<img>``` and ```<span></span>``` tags for image, name, price and 24hr change.
 
-
-
-
-
-
+![carousel example](https://github.com/ashishp911/Cryptocurrency-Application/blob/main/src/Images/carousel.png)/
 
 
 
