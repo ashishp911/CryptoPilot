@@ -68,7 +68,55 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 ## 1. Project file layout
 ![alt text](https://github.com/ashishp911/Cryptocurrency-Application/blob/main/src/Images/project_file_layout.jpeg)
 
-## 2. Create react App 
+## Create react App 
 ```
 npx create-react-app cryptocurrency
 ```
+
+## install Material UI
+```
+npm install @mui/system @emotion/react @emotion/styled @mui/styles
+```
+
+## install Axios
+```
+npm i axios
+```
+
+## install React Router DOM
+
+```
+npm install react-router-dom
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
