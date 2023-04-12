@@ -75,7 +75,7 @@ npx create-react-app cryptocurrency
 
 ## install Material UI
 ```
-npm install @mui/system @emotion/react @emotion/styled @mui/styles
+npm install @mui/material @mui/system @emotion/react @emotion/styled @mui/styles @mui/lab  
 ```
 
 ## install Axios
@@ -89,9 +89,18 @@ npm i axios
 npm install react-router-dom
 ```
 
-
-
-
+### 1. Reseting all css styles to default in app.css
+### 2. Importing a font Montserrat from google
+```
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800&display=swap');
+```
+### 3. in App.js
+Using routing in app.js so that we can toggle between homepage and coin_page. Wrap the entire app.js inside ``` <BrowserRouter> </BrowserRouter> ``` tags. Also do not forget to import Routes, Route and BrowserRouter. 
+```
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+``` 
+Enclose all the routes of your application between the ```<Routes> </Routes>``` tags. (In our case, homepage and coin_page). 
+Header.js will be outside the routes, so that it will be displayed all through the application.
 
 
 
