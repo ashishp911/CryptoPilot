@@ -89,6 +89,14 @@ npm i axios
 npm install react-router-dom
 ```
 
+## Coingecko API
+We are going to use 4 endpoints for this application, you can find all API related data here ->
+ [Coingecko API](https://www.coingecko.com/en/api/documentation).
+1. TrendingCoins (For carousel)
+2. SingleCoin (For single coin data)
+3. CoinList (For coin Table)
+4. HistoricalChart (For chart data)
+
 ### 1. Reseting all css styles to default in app.css
 ### 2. Importing a font Montserrat from google
 ```
@@ -113,12 +121,28 @@ We wrap whole header with darkTheme.
 ## Context API
 Since we want the currency and symbol selected through the header for the entire application, we will use context API. We wrap our entire app within cryptocontext, from index.js. We export {currency, symbol, setCurrency}, so that any component can now use these states.
 
-
-
-
-
-
-
+## Homepage
+Our homepage is divided into 2 parts, banner (upper part with carousel) and coint table (table with all trending coins.)
+### Banner
+1. For the banner, we use background image as banner2.
+2. Banner has 3 parts, Name of the application (Typography), small description (Typography) and the carousel. I created a different react component for the carousel.
+3. All APIs are in Api.js
+###  Carousel
+1. For carousel, we need the trendingCoins() api. This API takes currency as a parameter. We get the currency from context API. 
+2. Instead of fetch, I have used axios.get() to fetch data from the API.
+3. We use useEffect such that fetchTrendingCoins() function is called for the first time the page is rendered, also we add currency in the dependency list, so that whenever currency changes, fetchTrendingCoins() is called.
+4. We use useState to keep the fetched data in a variable called trending. 
+5. We use [**react alice carousel**](https://www.npmjs.com/package/react-alice-carousel) for our carousel.
+6. installation -->
+```
+npm i react-alice-carousel
+```
+7. We use ```<AliceCarousel/>``` to create carousel.
+8. We add responsive object in our AliceCarousel, and we have deifned it such that when the page in 0 pixels or more, we display 2 items and if its greater then 512 pixels,  we display 4 items.
+9. **Items** in the most important part of AliceCarousel.
+10. In items, we use the javaScript **object.map()** function to travese all the coins in trending which we fetched from our API.
+11. For the carousel, we add ```<Link></Link>``` tag so that by clicking on the image, we can go to any particular coin.
+12. We add ```<img>``` and ```
 
 
 
