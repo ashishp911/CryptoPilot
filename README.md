@@ -123,6 +123,7 @@ Since we want the currency and symbol selected through the header for the entire
 
 ## Homepage
 Our homepage is divided into 2 parts, banner (upper part with carousel) and coint table (table with all trending coins.)
+
 ### Banner
 1. For the banner, we use background image as banner2.
 2. Banner has 3 parts, Name of the application (Typography), small description (Typography) and the carousel. I created a different react component for the carousel.
@@ -144,10 +145,26 @@ npm i react-alice-carousel
 11. For the carousel, we add ```<Link></Link>``` tag so that by clicking on the image, we can go to any particular coin.
 12. We add ```<img>``` and ```<span></span>``` tags for image, name, price and 24hr change.
 example of carousel image is given below
+<br />
+
 ![carousel example](https://github.com/ashishp911/Cryptocurrency-Application/blob/main/src/Images/carousel%20.png)
+### Coins Table
+1. For coins table, we are going to use coinList api from api.js
+2. We again use axios to fetch coin list.
+3. With the heading (Typography) and search bar (TextField)
+4. Next comes the material UI [**TABLE**](https://mui.com/material-ui/react-table/) which will contain all the coins data like, 
+* Coin, 
+* Price, 
+* 24h Change, 
+* Market Cap.
+5. For table body, we call ```handleSearch()```, which returns the coin we inputted in TextField.
+6. We use slice function to only display 10 coins per page.
+7. We also added ```<LinearProgress />``` so that if the coins are not fetched from the API, we will show a progress bar using ```loading``` state. (More on LinearProgress [here](https://mui.com/material-ui/react-progress/))
 
-
-
-
+### Pagination
+1. Details about pagination [**here**](https://mui.com/material-ui/react-pagination/)
+2. We use pagination to divide the number of pages into the length of handleSearch() divided by 10.
+3. We add onChange fucntion so that ```page``` will be set to the page number we clicked. 
+4. We also add ```window.scroll(0,450)``` so that on change the window will be shown from the top.
 
 
