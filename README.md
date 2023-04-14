@@ -201,7 +201,11 @@ npm i react-chartjs-2 chart.js
 8. We use ```<Line />``` from chartjs 2 for our chart. It will have labels (time) and dataset (price of the coin).
 
 ### SelectButton
-1. Below the chart, we will add 4 buttons which will give options to show the chart data of 1 day, 30 day, 3 months and 1 year.
+1. Below the chart, we will add 4 buttons which will give options to show the chart data of 
+* 1 Day
+* 1 Month
+* 3 Months  
+* 1 Year.
 2. Select Button is a custom component to give styles to the buttons.
 
 
