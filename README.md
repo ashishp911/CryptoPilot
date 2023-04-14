@@ -184,7 +184,7 @@ const { id } = useParams();
 ```
 npm i html-react-parser
 ```
-9. I made the page responsive by adding different styles for diffent screen sizes.
+9. I made the page responsive by adding different styles for diffent screen sizes using ```useMediaQuery()```.
 
 
 ### CoinChart
