@@ -208,6 +208,8 @@ npm i react-chartjs-2 chart.js
 * 1 Year.
 2. Select Button is a custom component to give styles to the buttons.
 
+![selectButton](https://user-images.githubusercontent.com/62334020/232167886-3d20ebab-7341-441a-80c7-e574ef9356a1.png)
+
 
 
 
