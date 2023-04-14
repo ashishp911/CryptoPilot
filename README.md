@@ -168,3 +168,15 @@ example of carousel image is given below
 4. We also add ```window.scroll(0,450)``` so that on change the window will be shown from the top.
 
 
+## Coins page
+
+1. We used useparams to fetch id of coin from URL.
+``` 
+const { id } = useParams(); 
+```
+2. We use singleCoin(id) API to get information of a single coin.
+3. Coinpage is divided into sidebar and chart.
+4. Sidebar will have some details about the coin and chart will have historic data of the prices of the coin.
+5. 
+
+
