@@ -10,7 +10,7 @@ import {
   useMediaQuery,
   createTheme,
 } from "@mui/material";
-import CoinInfo from "../components/CoinInfo";
+import CoinChart from "../components/CoinChart";
 import HTMLReactParser from "html-react-parser";
 import { numberWithCommas } from "../components/banner/Carousel";
 
@@ -167,7 +167,7 @@ const CoinPage = () => {
           </div>
         </div>
         {/* Chart */}
-        <CoinInfo coin = {coin}/>
+        <CoinChart coin = {coin}/>
       </div>
     </ThemeProvider>
   );

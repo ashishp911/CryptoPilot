@@ -14,7 +14,7 @@ import { Chart as ChartJS } from "chart.js/auto";
 import { Chart } from "react-chartjs-2";
 import SelectButton from "./SelectButton";
 
-const CoinInfo = (props) => {
+const CoinChart = (props) => {
   const [historicalData, setHistoricalData] = useState();
   const [days, setDays] = useState(1);
   const { currency } = CryptoState();
@@ -138,4 +138,4 @@ const CoinInfo = (props) => {
   );
 };
 
-export default CoinInfo;
+export default CoinChart;
