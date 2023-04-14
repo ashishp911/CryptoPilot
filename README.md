@@ -169,25 +169,50 @@ example of carousel image is given below
 
 
 ## Coins page
-
 1. We used useparams to fetch id of coin from URL.
 ``` 
 const { id } = useParams(); 
 ```
-2. We use ```singleCoin(id)``` API to get information of a single coin.
-3. Coinpage is divided into sidebar and chart.
-4. Sidebar will have some details about the coin and chart will have historic data of the prices of the coin.
-5. I added reponsive styles for this part. If the screensize is less than md, then flexDirection will be column.I did this by using ```useMediaQuery()```.
-6. For coin Info, I added coin image, coin id, description, rank, market cap, 
-7. The description of a coin has some html in it, so to remove that, we added ```HTMLReactParser```.
-8. Installation
+2. We use ```singleCoin(id)``` API to get information of a single coin. 
+3. Coinpage is divided into Coin_Info and CoinChart.
+
+### Coin_Info
+1. Sidebar(Coin_Info.js) is a component inside CoinPage will have some details about the coin. 
+2. I added reponsive styles for this part. If the screensize is less than md, then flexDirection will be column.I did this by using ```useMediaQuery()```.
+3. For coin_Info, I added coin image, coin id, description, rank, market cap, 
+4. The description of a coin has some html in it, so to remove that, we added ```HTMLReactParser```.
+5. Installation
 ```
 npm i html-react-parser
 ```
-9. I made the page responsive by adding different styles for diffent screen sizes using ```useMediaQuery()```.
-
+6. I made the page responsive by adding different styles for diffent screen sizes using ```useMediaQuery()```.
 
 ### CoinChart
+1. CoinChart is another component inside CoinPage which will have historic data of the prices of the coin.
+2. I used chartJs2 for plotting the chart.
+3. Installation
+```
+npm i react-chartjs-2 chart.js
+```
+4. Refer [Here](https://github.com/reactchartjs/react-chartjs-2) for chartjs2
+5. We used historicalChart API to get the data
+6. We have 2 dependencies for the useEffect API here, currency and days which means if currency or days change, the page will re-render.
+7. ```historicalData``` will have an array of time and price.
+8. We use ```<Line />``` from chartjs 2 for our chart. It will have labels (time) and dataset (price of the coin).
+
+### SelectButton
+1. Below the chart, we will add 4 buttons which will give options to show the chart data of 1 day, 30 day, 3 months and 1 year.
+2. Select Button is a custom component to give styles to the buttons.
+
+
+
+
+
+
+
+
+
+
 
 
 
