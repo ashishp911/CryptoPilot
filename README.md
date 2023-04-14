@@ -174,9 +174,22 @@ example of carousel image is given below
 ``` 
 const { id } = useParams(); 
 ```
-2. We use singleCoin(id) API to get information of a single coin.
+2. We use ```singleCoin(id)``` API to get information of a single coin.
 3. Coinpage is divided into sidebar and chart.
 4. Sidebar will have some details about the coin and chart will have historic data of the prices of the coin.
-5. 
+5. I added reponsive styles for this part. If the screensize is less than md, then flexDirection will be column.I did this by using ```useMediaQuery()```.
+6. For coin Info, I added coin image, coin id, description, rank, market cap, 
+7. The description of a coin has some html in it, so to remove that, we added ```HTMLReactParser```.
+8. Installation
+```
+npm i html-react-parser
+```
+9. I made the page responsive by adding different styles for diffent screen sizes.
+
+
+### CoinChart
+
+
+
 
 
