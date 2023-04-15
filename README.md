@@ -66,7 +66,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
   
 # Getting Started with CryptoPilot
 ## 1. Project file layout
-![project layout](https://github.com/ashishp911/Cryptocurrency-Application/blob/main/src/Images/project_file_layout.jpeg)
+![Crypto project layout2](https://user-images.githubusercontent.com/62334020/232179191-c90b45de-0bd2-4d75-9fbb-50be617889dc.png)
 
 ## Create react App 
 ```
