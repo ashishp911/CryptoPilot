@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 export function numberWithCommas(num) {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
 const Carousel = () => {
   const { currency, symbol } = CryptoState();
   const [trending, setTrending] = useState([]);
@@ -16,7 +17,7 @@ const Carousel = () => {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-  }; 
+  };
 
   //   Getting the data from coingecko api
   const fetchTrendingData = async () => {
@@ -35,6 +36,7 @@ const Carousel = () => {
   const items = trending.map((coin) => {
     let profit = coin.price_change_percentage_24h >= 0;
     // console.log(profit);
+
     return (
       <Link style={carousel} to={`/coins/${coin.id}`}>
         <img
@@ -45,9 +47,15 @@ const Carousel = () => {
         ></img>
         <span>
           {coin?.symbol}
-          &nbsp; 
-          <span style={{ color : profit > 0 ? "rgb(14, 203, 129)" : "red", fontWeight:500 }}>
-            {profit==="true" ? "-" : "+"}{coin.price_change_percentage_24h.toFixed(2)}%
+          &nbsp;
+          <span
+            style={{
+              color: profit > 0 ? "rgb(14, 203, 129)" : "red",
+              fontWeight: 500,
+            }}
+          >
+            {profit === "true" ? "-" : "+"}
+            {coin.price_change_percentage_24h.toFixed(2)}%
           </span>
         </span>
         <span style={{ fontSize: 22, fontWeight: 500 }}>

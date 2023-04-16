@@ -48,7 +48,6 @@ const CoinPage = () => {
     marginTop: 50,
   };
 
-
   if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
 
   return (

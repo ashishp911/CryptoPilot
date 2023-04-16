@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
 import { CryptoState } from "../CryptoContext";
 import {
-  ThemeProvider,
   Typography,
   LinearProgress,
   useMediaQuery,

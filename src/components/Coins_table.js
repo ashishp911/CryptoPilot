@@ -37,8 +37,6 @@ const Coins_table = () => {
     setLoading(false);
   };
 
-  // console.log(coins);
-
   useEffect(() => {
     fetchCoins();
   }, [currency]);
@@ -190,14 +188,14 @@ const Coins_table = () => {
           count={(handleSearch().length / 10).toFixed(0)}
           color="primary"
           style={{
-            padding:20,
-            width:"100%",
-            display:"flex",
-            justifyContent:"center",
+            padding: 20,
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
           }}
-          onChange={(_,value) => {
+          onChange={(_, value) => {
             setPage(value);
-            window.scroll(0,450);
+            window.scroll(0, 450);
           }}
         />
       </Container>

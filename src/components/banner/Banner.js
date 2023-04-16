@@ -1,12 +1,9 @@
 import React from "react";
-import { styled } from "@mui/system";
 import { Container, Typography } from "@mui/material";
 import backgroundImage from "../../Images/banner2.jpg";
 import Carousel from "./Carousel";
 const Banner = () => {
-  //   const bannerStyles = styled("div")({
-  //     backgroundImage: `url(.././src/Images/banner2.jpg)`,
-  //   });
+
   const bgImage = {
     backgroundImage: `url(${backgroundImage})`,
   };

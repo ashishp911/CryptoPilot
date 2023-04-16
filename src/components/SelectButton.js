@@ -1,4 +1,3 @@
-import { fontWeight } from '@mui/system'
 import React from 'react'
 
 const SelectButton = ({children, selected, onClick}) => {
@@ -19,6 +18,7 @@ const SelectButton = ({children, selected, onClick}) => {
         },
         width : "22%",
     }
+    
   return (
     <span onClick={onClick} style={buttonStyle}>
         {children}
