@@ -147,7 +147,8 @@ npm i react-alice-carousel
 example of carousel image is given below
 <br />
 
-![carousel example](https://github.com/ashishp911/Cryptocurrency-Application/blob/main/src/Images/carousel%20.png)
+![Carousel_banner](https://user-images.githubusercontent.com/62334020/232358038-f693aa3b-5912-4fbd-8764-c328201058d0.png)
+
 ### Coins Table
 1. For coins table, we are going to use coinList api from api.js
 2. We again use axios to fetch coin list.
@@ -167,6 +168,7 @@ example of carousel image is given below
 3. We add onChange fucntion so that ```page``` will be set to the page number we clicked. 
 4. We also add ```window.scroll(0,450)``` so that on change the window will be shown from the top.
 
+![coins_table](https://user-images.githubusercontent.com/62334020/232358349-ea9d7ebb-1c4f-4bcc-81e1-4161eebbddd8.png)
 
 ## Coins page
 1. We used useparams to fetch id of coin from URL.
@@ -208,7 +210,7 @@ npm i react-chartjs-2 chart.js
 * 1 Year.
 2. Select Button is a custom component to give styles to the buttons.
 
-![selectButton](https://user-images.githubusercontent.com/62334020/232167886-3d20ebab-7341-441a-80c7-e574ef9356a1.png)
+![Coin_Info](https://user-images.githubusercontent.com/62334020/232358243-29e91859-8cdb-4021-a28c-2926438d7633.png)
 
 
 
