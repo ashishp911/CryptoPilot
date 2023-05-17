@@ -19,7 +19,7 @@ const style = {
   width: 400,
   bgcolor: "background.paper",
   //   border: "2px solid #000",
-  boxShadow: 24,
+//   boxShadow: 24,
   p: 2,
   color: "white",
 };
@@ -78,8 +78,8 @@ const AuthModal = () => {
             </Tabs>
 
             {/* Switching tabs for login and signup */}
-            {value === 0 && <Login />}
-            {value === 1 && <Signup />}
+            {value === 0 && <Login handleClose={handleClose}/>}
+            {value === 1 && <Signup handleClose={handleClose}/>}
 
           </AppBar>
         </Box>
