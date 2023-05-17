@@ -3,6 +3,7 @@ import { CryptoState } from "../CryptoContext";
 import axios from "axios";
 import { HistoricalChart } from "../config/api";
 import { chartDays } from "../config/data";
+import Chart from 'chart.js/auto';
 import {
   CircularProgress,
   ThemeProvider,
