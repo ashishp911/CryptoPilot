@@ -10,6 +10,7 @@ import {
   createTheme,
   ThemeProvider,
 } from "@mui/material";
+import AuthModal from "./authentication/AuthModal";
 import { useNavigate } from "react-router-dom";
 import { CryptoState } from "../CryptoContext";
 
@@ -65,6 +66,8 @@ const Header = () => {
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"INR"}>INR</MenuItem>
             </Select>
+            {/* AuthModal component for login*/}
+            <AuthModal/>
           </Toolbar>
         </Container>
       </AppBar>
