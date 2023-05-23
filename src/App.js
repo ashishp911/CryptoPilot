@@ -4,6 +4,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import CoinPage from "./pages/CoinPage";
 import { styled } from "@mui/system";
+import Alert from "./components/Alert";
 
 function App() {
   const MyComponent = styled("div")({
@@ -25,6 +26,7 @@ function App() {
             <Route exact path="/coins/:id" element={<CoinPage />} />
           </Routes>
         </MyComponent>
+        <Alert/>
       </BrowserRouter>
     </>
   );

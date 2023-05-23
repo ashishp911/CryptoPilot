@@ -66,7 +66,7 @@ const Header = () => {
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"INR"}>INR</MenuItem>
             </Select>
-            {/* AuthModal component for login*/}
+            {/* AuthModal component for login or signup*/}
             <AuthModal/>
           </Toolbar>
         </Container>
