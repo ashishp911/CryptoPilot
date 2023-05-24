@@ -13,7 +13,6 @@ const Signup = ({ handleClose }) => {
   const { setAlert } = CryptoState();
 
   const handleSubmit = async () => {
-    console.log("Coming to handle submit");
     // 1st check --> if password != confirm password
     if (password !== confirmPassword) {
       // using snackbar from material UI as an alert
