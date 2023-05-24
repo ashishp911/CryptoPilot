@@ -18,7 +18,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   // Importing the context API
-  const { currency, setCurrency } = CryptoState();
+  const { currency, setCurrency, user } = CryptoState();
   console.log(currency);
 
   const darkTheme = createTheme({
@@ -67,7 +67,7 @@ const Header = () => {
               <MenuItem value={"INR"}>INR</MenuItem>
             </Select>
             {/* AuthModal component for login or signup*/}
-            <AuthModal/>
+            {user ? "Logout" : <AuthModal/>}
           </Toolbar>
         </Container>
       </AppBar>
