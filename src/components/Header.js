@@ -13,6 +13,7 @@ import {
 import AuthModal from "./authentication/AuthModal";
 import { useNavigate } from "react-router-dom";
 import { CryptoState } from "../CryptoContext";
+import UserSidebar from "./authentication/UserSidebar";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -67,7 +68,7 @@ const Header = () => {
               <MenuItem value={"INR"}>INR</MenuItem>
             </Select>
             {/* AuthModal component for login or signup*/}
-            {user ? "Logout" : <AuthModal/>}
+            {user ? <UserSidebar/> : <AuthModal/>}
           </Toolbar>
         </Container>
       </AppBar>
