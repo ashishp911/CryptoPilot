@@ -3,25 +3,50 @@ import { Box } from "@mui/system";
 import React from "react";
 import { useState } from "react";
 import { CryptoState } from "../../CryptoContext";
+import { auth } from "../../firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Signup = ({ handleClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const {setAlert} = CryptoState()
-  
-  const handleSubmit = () => {
+  const { setAlert } = CryptoState();
+
+  const handleSubmit = async () => {
     console.log("Coming to handle submit");
     // 1st check --> if password != confirm password
     if (password !== confirmPassword) {
       // using snackbar from material UI as an alert
       setAlert({
-        open:true,
-        message:"passwords do not match",
-        type:"error"
-      })
+        open: true,
+        message: "passwords do not match",
+        type: "error",
+      });
+      return;
     }
-    return 
+    try {
+      const result = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      // alert message after signup
+      setAlert({
+        open: true,
+        message: `signup successfull. Welcome, ${result.user.email}`,
+        type: "success",
+      });
+      // we Need to close the modal after signup, so we will call handle close
+      handleClose();
+    } catch (error) {
+      setAlert({
+        open: true,
+        message: error.message,
+        type: "error",
+      });
+      return;
+    }
+    return;
   };
 
   return (
