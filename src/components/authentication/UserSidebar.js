@@ -2,6 +2,8 @@ import * as React from "react";
 import Drawer from "@mui/material/Drawer";
 import { CryptoState } from "../../CryptoContext";
 import { Avatar, Button } from "@mui/material";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase";
 
 export default function UserSidebar() {
   const [state, setState] = React.useState({ right: false });
@@ -32,33 +34,29 @@ export default function UserSidebar() {
   };
 
   const logoutStyles = {
-    height: "8%", 
-    width: "100%", 
+    height: "8%",
+    width: "100%",
     marginTop: 20,
     cursor: "pointer",
     backgroundColor: "#EEBC1D",
-}
+  };
 
-const watchlistStyles = {
+  const watchlistStyles = {
     flex: 1,
-    width: "100%", 
+    width: "100%",
     backgroundColor: "grey",
-    borderRadius: 10, 
+    borderRadius: 10,
     padding: 15,
     paddingTop: 10,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    gap: 12, 
+    gap: 12,
     overflowY: "scroll",
-  }
+  };
 
   //   getting the user from the context
-  const { user } = CryptoState();
-
-  const logOut = () => {
-
-  }
+  const { user, setAlert } = CryptoState();
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -67,14 +65,24 @@ const watchlistStyles = {
     ) {
       return;
     }
-
     setState({ ...state, [anchor]: open });
   };
+  const logOut = () => {
+    signOut(auth);
+    setAlert({
+      open: true,
+      type: "success",
+      message: "Logout successfull!",
+    });
+    toggleDrawer();
+  };
+
 
   return (
     <div>
       {["right"].map((anchor) => (
         <React.Fragment key={anchor}>
+          {/* This avatar is for user image on the header. */}
           <Avatar
             onClick={toggleDrawer(anchor, true)}
             style={{
@@ -109,19 +117,14 @@ const watchlistStyles = {
                 >
                   {user.displaName || user.email}
                 </span>
-                <div
-                style={watchlistStyles}>
-                    <span style={{fontSize: 15, textShadow: "0 0 5px black"}}>
-                        Watchlist
-                    </span>
+                <div style={watchlistStyles}>
+                  <span style={{ fontSize: 15, textShadow: "0 0 5px black" }}>
+                    Watchlist
+                  </span>
                 </div>
               </div>
               {/* button for log out */}
-              <Button 
-              variant="contained"
-              style={logoutStyles}
-              onClick={logOut}
-              >
+              <Button variant="contained" style={logoutStyles} onClick={logOut}>
                 Logout
               </Button>
             </div>
