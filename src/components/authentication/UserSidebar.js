@@ -4,6 +4,10 @@ import { CryptoState } from "../../CryptoContext";
 import { Avatar, Button } from "@mui/material";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
+import { numberWithCommas } from "../banner/Carousel";
+import {AiFillDelete} from 'react-icons/ai'
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
 export default function UserSidebar() {
   const [state, setState] = React.useState({ right: false });
@@ -32,7 +36,7 @@ export default function UserSidebar() {
     objectFit: "contain",
     backgroundColor: "#EEBC1D",
   };
-
+  
   const logoutStyles = {
     height: "8%",
     width: "100%",
@@ -40,7 +44,7 @@ export default function UserSidebar() {
     cursor: "pointer",
     backgroundColor: "#EEBC1D",
   };
-
+  
   const watchlistStyles = {
     flex: 1,
     width: "100%",
@@ -54,9 +58,21 @@ export default function UserSidebar() {
     gap: 12,
     overflowY: "scroll",
   };
+  
+  const coinStyles = {
+    padding: 10,
+    borderRadius: 5, 
+    color: "black",
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor: "#EEBC1D",
+    boxShadow: "0 0 3px black"
+  }
 
   //   getting the user from the context
-  const { user, setAlert } = CryptoState();
+  const { user, setAlert, watchList, coins, symbol } = CryptoState();
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -75,6 +91,35 @@ export default function UserSidebar() {
       message: "Logout successfull!",
     });
     toggleDrawer();
+  };
+
+  const removeFromWatchlist = async (coin) => {
+    const coinRef = doc(db, "watchlist", user?.uid);
+    try {
+      // if there is something in the watchlist, it is going to append it, else add single coin coin.id
+      await setDoc(
+        coinRef,
+        {
+          coins: watchList.filter((watch) => {
+            return watch !== coin?.id;
+          }),
+        },
+        { merge: "true" }
+      );
+
+      // set alert that coin has been added
+      setAlert({
+        open: true,
+        message: `${coin?.name} removed to the watchlist`,
+        type: "success",
+      });
+    } catch (error) {
+      setAlert({
+        open: true,
+        message: error.message,
+        type: "error",
+      });
+    }
   };
 
 
@@ -121,6 +166,29 @@ export default function UserSidebar() {
                   <span style={{ fontSize: 15, textShadow: "0 0 5px black" }}>
                     Watchlist
                   </span>
+                  {coins.map((coin) => {
+                    if(watchList.includes(coin.id)){
+                      return (
+                        <div style={coinStyles}>
+                          <span>
+                            {coin.name}
+                          </span>
+                          <span style={{
+                            display:"flex",
+                            gap: 8,
+                          }}>
+                            {symbol}
+                            {numberWithCommas(coin.current_price.toFixed(2))}
+                            <AiFillDelete
+                            style={{cursor:"pointer"}}
+                            fontSize="16"
+                            onClick = {() => removeFromWatchlist(coin)}
+                            />
+                          </span>
+                        </div>
+                      )
+                    }
+                  })}
                 </div>
               </div>
               {/* button for log out */}
