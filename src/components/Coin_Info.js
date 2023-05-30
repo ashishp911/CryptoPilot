@@ -4,12 +4,15 @@ import {
   LinearProgress,
   useMediaQuery,
   createTheme,
+  Button,
 } from "@mui/material";
 import HTMLReactParser from "html-react-parser";
 import { numberWithCommas } from "../components/banner/Carousel";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
 const Coin_Info = (props) => {
-    const { currency, symbol } = CryptoState();
+  const { currency, symbol, user, watchList, setAlert } = CryptoState();
   const theme = createTheme({
     breakpoints: {
       values: {
@@ -69,6 +72,34 @@ const Coin_Info = (props) => {
     }),
   };
 
+  // Creating a bool variable to check if coin is present in watchlist (for UI)
+  const inWatchList = watchList.includes(props.coin?.id)
+  
+
+  const addToWatchList = async () => {
+    const coinRef = doc(db, "watchlist", user.uid)
+    try {
+      // if there is something in the watchlist, it is going to append it, else add single coin coin.id
+      await setDoc(coinRef, {
+        coins: watchList ? [...watchList, props.coin?.id]: [props.coin?.id]
+      })
+
+      // set alert that coin has been added
+      setAlert({
+        open: true,
+        message: `${props.coin?.name} added to the watchlist`,
+        type: "success"
+      })
+
+    } catch (error) {
+      setAlert({
+        open: true,
+        message: error.message,
+        type: "error",
+      })
+    }
+  }
+
   return (
     <div style={sidebarStyles}>
       <img
@@ -127,7 +158,22 @@ const Coin_Info = (props) => {
             )}{" "}
             M
           </Typography>
-        </span>
+          </span>
+          {/* if user is logged in, then only we will add the button */}
+          {user && (
+            <Button
+            variant="outlined"
+              style={{
+                width: "100%",
+                height: 40,
+                backgroundColor: "#EEBC1D",
+                color: "black"
+              }}
+              onClick={addToWatchList}
+              >
+              {inWatchList ? "Remove from watchlist" : "Add to watchlist"}
+            </Button>
+          )}
       </div>
     </div>
   );
