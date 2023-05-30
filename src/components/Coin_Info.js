@@ -61,7 +61,8 @@ const Coin_Info = (props) => {
     width: "100%",
     ...(isMdScreen && {
       display: "flex",
-      justifyContent: "space-around",
+      flexDirection: "column",
+      alignItems: "center",
     }),
     ...(issmScreen && {
       flexDirection: "column",
