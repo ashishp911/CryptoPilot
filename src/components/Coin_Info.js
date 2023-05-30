@@ -74,32 +74,59 @@ const Coin_Info = (props) => {
   };
 
   // Creating a bool variable to check if coin is present in watchlist (for UI)
-  const inWatchList = watchList.includes(props.coin?.id)
-  
+  const inWatchList = watchList.includes(props.coin?.id);
 
   const addToWatchList = async () => {
-    const coinRef = doc(db, "watchlist", user.uid)
+    const coinRef = doc(db, "watchlist", user?.uid);
     try {
       // if there is something in the watchlist, it is going to append it, else add single coin coin.id
       await setDoc(coinRef, {
-        coins: watchList ? [...watchList, props.coin?.id]: [props.coin?.id]
-      })
+        coins: watchList ? [...watchList, props.coin?.id] : [props.coin?.id],
+      });
 
       // set alert that coin has been added
       setAlert({
         open: true,
         message: `${props.coin?.name} added to the watchlist`,
-        type: "success"
-      })
-
+        type: "success",
+      });
     } catch (error) {
       setAlert({
         open: true,
         message: error.message,
         type: "error",
-      })
+      });
     }
-  }
+  };
+
+  const removeFromWatchlist = async () => {
+    const coinRef = doc(db, "watchlist", user?.uid);
+    try {
+      // if there is something in the watchlist, it is going to append it, else add single coin coin.id
+      await setDoc(
+        coinRef,
+        {
+          coins: watchList.filter((watch) => {
+            return watch !== props.coin?.id;
+          }),
+        },
+        { merge: "true" }
+      );
+
+      // set alert that coin has been added
+      setAlert({
+        open: true,
+        message: `${props.coin?.name} removed to the watchlist`,
+        type: "success",
+      });
+    } catch (error) {
+      setAlert({
+        open: true,
+        message: error.message,
+        type: "error",
+      });
+    }
+  };
 
   return (
     <div style={sidebarStyles}>
@@ -159,22 +186,22 @@ const Coin_Info = (props) => {
             )}{" "}
             M
           </Typography>
-          </span>
-          {/* if user is logged in, then only we will add the button */}
-          {user && (
-            <Button
+        </span>
+        {/* if user is logged in, then only we will add the button */}
+        {user && (
+          <Button
             variant="outlined"
-              style={{
-                width: "100%",
-                height: 40,
-                backgroundColor: "#EEBC1D",
-                color: "black"
-              }}
-              onClick={addToWatchList}
-              >
-              {inWatchList ? "Remove from watchlist" : "Add to watchlist"}
-            </Button>
-          )}
+            style={{
+              width: "100%",
+              height: 40,
+              backgroundColor: inWatchList ? "ED2B2A" : "#EEBC1D",
+              color: inWatchList ? "#070A52" : "black",
+            }}
+            onClick={inWatchList ? removeFromWatchlist : addToWatchList}
+          >
+            {inWatchList ? "Remove from watchlist" : "Add to watchlist"}
+          </Button>
+        )}
       </div>
     </div>
   );

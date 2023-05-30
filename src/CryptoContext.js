@@ -8,8 +8,8 @@ import React, {
 import axios from "axios";
 import { CoinList } from "./config/api";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "./firebase";
-
+import { auth, db } from "./firebase";
+import { doc, onSnapshot } from "firebase/firestore";
 
 const CryptoContext = ({ children }) => {
   const [currency, setCurrency] = useState("INR");
@@ -32,7 +32,7 @@ const CryptoContext = ({ children }) => {
       } else {
         setUser(null);
       }
-      console.log(user);
+      // console.log(user);
     });
   }, []);
 
@@ -42,6 +42,25 @@ const CryptoContext = ({ children }) => {
     setCoins(data);
     setLoading(false);
   };
+
+  // use effect for onSnapshot
+  useEffect(() => {
+    if (user) {
+      const coinRef = doc(db, "watchlist", user?.uid);
+      var unsubscribe = onSnapshot(coinRef, (coin) => {
+        if (coin.exists()) {
+          console.log("Here");
+          console.log(coin.data().coins);
+          setWatchList(coin.data().coins);
+        } else {
+          console.log("No items in watchlist");
+        }
+      });
+      return () => {
+        unsubscribe();
+      };
+    }
+  }, [user]);
 
   useEffect(() => {
     if (currency === "INR") setSymbol("₹");
@@ -60,7 +79,7 @@ const CryptoContext = ({ children }) => {
         alert,
         setAlert,
         user,
-        watchList
+        watchList,
       }}
     >
       {children}
