@@ -22,7 +22,6 @@ const CoinChart = (props) => {
     const { data } = await axios.get(
       HistoricalChart(props.coin?.id, days, currency)
     );
-    console.log(data);
     setHistoricalData(data.prices);
   };
 
@@ -31,7 +30,7 @@ const CoinChart = (props) => {
   }, [currency, days]);
 
   // console.log(props.coin?.id);
-  console.log(historicalData);
+  // console.log(historicalData);
 
   const darkTheme = createTheme({
     palette: {
