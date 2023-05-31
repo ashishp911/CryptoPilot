@@ -1,7 +1,6 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { AppBar } from "@mui/material";
 import Tabs from "@mui/material/Tabs";
@@ -59,20 +58,22 @@ const AuthModal = () => {
   // Google
   const googleProvider = new GoogleAuthProvider();
   const signInWithGoogle = () => {
-    signInWithPopup(auth, googleProvider).then((res) => {
-      setAlert({
-        open: true,
-        message: `Sign Up successfull, Welcome ${res.user.email}`,
-        type: "success",
+    signInWithPopup(auth, googleProvider)
+      .then((res) => {
+        setAlert({
+          open: true,
+          message: `Sign Up successfull, Welcome ${res.user.email}`,
+          type: "success",
+        });
+        handleClose();
       })
-      handleClose()
-    }).catch((err=> {
-      setAlert({
-        open: true,
-        message: err.message,
-        type: "error",
-      })
-    }))
+      .catch((err) => {
+        setAlert({
+          open: true,
+          message: err.message,
+          type: "error",
+        });
+      });
   };
 
   return (

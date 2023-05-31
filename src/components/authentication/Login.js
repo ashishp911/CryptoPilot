@@ -11,6 +11,7 @@ const Login = ({ handleClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setAlert } = CryptoState();
+
   const handleSubmit = async () => {
     // Check if email or password is empty
     if (!email || !password) {
@@ -24,7 +25,7 @@ const Login = ({ handleClose }) => {
     //
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
-      // result is an object 
+      // result is an object
       // alert success
       setAlert({
         open: true,
