@@ -7,7 +7,7 @@ import { auth } from "../../firebase";
 import { numberWithCommas } from "../banner/Carousel";
 import {AiFillDelete} from 'react-icons/ai'
 import { doc, setDoc } from "firebase/firestore";
-import { db } from "../firebase";
+import {db} from '../../firebase'
 
 export default function UserSidebar() {
   const [state, setState] = React.useState({ right: false });
