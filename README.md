@@ -214,9 +214,12 @@ npm i react-chartjs-2 chart.js
 
 
 # Firebase Integration
-1. Integrated Firebase with our react application.
-2. Created a [modal](https://mui.com/material-ui/react-modal/) (from material UI) which is a component that  provides a solid foundation for creating dialogs, popovers, lightboxes, or whatever else.
-3. Created 2 components for login and signup.
+1. Integrated [Firebase](https://medium.com/firebase-developers/what-is-firebase-the-complete-story-abridged-bcc730c5f2c0) with our react application.
+2. Installed firebase
+   ```npm install firebase```
+3. Created a [modal](https://mui.com/material-ui/react-modal/) (from material UI) which is a component that  provides a solid foundation for creating dialogs, popovers, lightboxes, or whatever else.
+4. Create tabs from material UI for 1. Login and 2. Signup
+5. Created 2 components for login and signup.
 
 ## Signup page
 1. We used material UI's Box to create a simple signup page with 3 textfields and 1 button.
@@ -241,12 +244,6 @@ Now I added ```onAuthStateChanged()``` to out cryptoContext page to keep a ```us
 3. We use Avartar from material UI for our image and we created a div for our watchlist.
 4. Finally the logout button.
 5. For logout, we use ```signOut()``` from ```firebase/auth```. And then we give the user alert using ```setAlert()```. 
-
-
-
-
-
-
 
 
 
