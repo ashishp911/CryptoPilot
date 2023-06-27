@@ -1,11 +1,12 @@
 import React from "react";
 import { Container, Typography } from "@mui/material";
-import backgroundImage from "../../Images/banner2.jpg";
+// import backgroundImage from "../../Images/banner2.jpg";
+import backgroundImage4 from "../../Images/banner4.jpg";
 import Carousel from "./Carousel";
 const Banner = () => {
 
   const bgImage = {
-    backgroundImage: `url(${backgroundImage})`,
+    backgroundImage: `url(${backgroundImage4})`,
   };
   const bannerContent = {
     height: 400,
