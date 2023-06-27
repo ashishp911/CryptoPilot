@@ -218,7 +218,7 @@ npm i react-chartjs-2 chart.js
 2. Installed firebase
    ```npm install firebase```
 3. Created a [modal](https://mui.com/material-ui/react-modal/) (from material UI) which is a component that  provides a solid foundation for creating dialogs, popovers, lightboxes, or whatever else.
-4. Create tabs from material UI for 1. Login and 2. Signup
+4. Create [tabs](https://mui.com/material-ui/react-tabs/) from material UI to toggle between 1. Login and 2. Signup
 5. Created 2 components for login and signup.
 
 ## Signup page
@@ -234,13 +234,13 @@ npm i react-chartjs-2 chart.js
 ## Login page
 1. Again we have used material UI's Box to create the login modal.
 2. The ```handleSubmit()``` is similar to that of Signup, the only difference is that instead of using ```createUserWithEmailAndPassword()```, we are using the ```signInWithEmailAndPassword()``` function, which also takes 3 arguments, auth, email and password.
-3. Error is thrown if password is wrong.
+3. Error is thrown if the password is wrong.
 
-Now I added ```onAuthStateChanged()``` to out cryptoContext page to keep a ```user``` state to keep the information of the users that just loggged in.
+Now I added ```onAuthStateChanged()``` to our cryptoContext page to keep a ```user``` state to keep the information of the users that just logged in.
 
 ## UserSidebar
 1. For sidebar, we used something called [material UI drawer](https://mui.com/material-ui/react-drawer/) 
-2. Inside our sidebar, we have four important things, User image, user display name, wishlist and logout button.
+2. Inside our sidebar, we have four important things, User image, user display name, wishlist, and logout button.
 3. We use Avartar from material UI for our image and we created a div for our watchlist.
 4. Finally the logout button.
 5. For logout, we use ```signOut()``` from ```firebase/auth```. And then we give the user alert using ```setAlert()```. 
