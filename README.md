@@ -213,6 +213,36 @@ npm i react-chartjs-2 chart.js
 ![Coin_Info](https://user-images.githubusercontent.com/62334020/232358243-29e91859-8cdb-4021-a28c-2926438d7633.png)
 
 
+# Firebase Integration
+1. Integrated Firebase with our react application.
+2. Created a [modal](https://mui.com/material-ui/react-modal/) (from material UI) which is a component that  provides a solid foundation for creating dialogs, popovers, lightboxes, or whatever else.
+3. Created 2 components for login and signup.
+
+## Signup page
+1. We used material UI's Box to create a simple signup page with 3 textfields and 1 button.
+2. The handlesubmit will be called when user clicks the submit button.
+3. This function will first check if password and confirm password are same, if not, it will throw an error using snackbar.
+4. Then, i used the ```createUserWithEmailAndPassword()``` function. In Firebase, the ```createUserWithEmailAndPassword()``` function is a method provided by the Firebase Authentication SDK. It is used to create a new user account using an email address and password.
+5. This function takes 3 parameters, auth, email and password.
+6. Firebase will validate the provided email and password and create a new user account if they meet the required criteria.
+7. If the account creation is successful, Firebase will return a user object containing information about the newly created user.
+8. Then we show the signup successful alert message using snackbar alert and close the modal using ```handleclose()``` which was taken as props from ```Authmodal```.
+
+## Login page
+1. Again we have used material UI's Box to create the login modal.
+2. The ```handleSubmit()``` is similar to that of Signup, the only difference is that instead of using ```createUserWithEmailAndPassword()```, we are using the ```signInWithEmailAndPassword()``` function, which also takes 3 arguments, auth, email and password.
+3. Error is thrown if password is wrong.
+
+Now I added ```onAuthStateChanged()``` to out cryptoContext page to keep a ```user``` state to keep the information of the users that just loggged in.
+
+## UserSidebar
+1. For sidebar, we used something called [material UI drawer](https://mui.com/material-ui/react-drawer/) 
+2. Inside our sidebar, we have four important things, User image, user display name, wishlist and logout button.
+3. We use Avartar from material UI for our image and we created a div for our watchlist.
+4. Finally the logout button.
+5. For logout, we use ```signOut()``` from ```firebase/auth```. And then we give the user alert using ```setAlert()```. 
+
+
 
 
 
