@@ -239,14 +239,23 @@ npm i react-chartjs-2 chart.js
 Now I added ```onAuthStateChanged()``` to our cryptoContext page to keep a ```user``` state to keep the information of the users that just logged in.
 
 ## UserSidebar
-1. For sidebar, we used something called [material UI drawer](https://mui.com/material-ui/react-drawer/) 
-2. Inside our sidebar, we have four important things, User image, user display name, wishlist, and logout button.
-3. We use Avartar from material UI for our image and we created a div for our watchlist.
-4. Finally the logout button.
-5. For logout, we use ```signOut()``` from ```firebase/auth```. And then we give the user alert using ```setAlert()```. 
+1. For the sidebar, we used something called [material UI drawer](https://mui.com/material-ui/react-drawer/) 
+2. Inside our sidebar, we have four important things, User image, user display name, wishlist, and a logout button.
+3. We use [Avartar](https://mui.com/material-ui/react-avatar/) from material UI for our image and we created a div for our watchlist.
+4. Our Avatar will have a onclick function ```toggleDrawer()``` which is used to open/close the drawer.
+5. Adding ```overflowY: "scroll"``` to our styles adds a scroller for the watchlist.
+6. Finally the logout button. 
+7. For logout, we use ```signOut()``` from ```firebase/auth```. And then we give the user alert using ```setAlert()```. 
 
-
-
+## Adding Google signup
+1. In ```AuthModal``` we will add a box(material UI) and add a Google button.
+2. We will add a library called react google button.
+  ```npm install react-google-button```
+3. ```GoogleButton``` will hve an onclick function.
+4. We added a ```SingnInWithGoogle()``` function.
+5. Inside this fucntion there will be ```signInWithPopup()``` which will take googleProvider and auth as parameters and googleProvider has be initialised as below
+  
+  ```const googleProvider = new GoogleAuthProvider();```
 
 
 
