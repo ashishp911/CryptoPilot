@@ -261,6 +261,3 @@ Now I added ```onAuthStateChanged()``` to our cryptoContext page to keep a ```us
 1. Go to firebase and open your project.
 
 
-
-
-
