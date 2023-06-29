@@ -281,3 +281,26 @@ service cloud.firestore {
 }
 ```
 6. This means that only authenticated user will have read write access.
+7. [Firebase database rules](https://firebase.google.com/docs/database/security)
+
+## Add to watchlist button
+There will be a add to watchlist button in the Coin_info.js
+1. First take user from cryptoContext and check if user is present.
+2. If the user is present, we will show the button to add to watchlist.
+3. ```inWatchList``` is a bool variable to check if the coin is already present in the watchlist.
+4. If the coin is already present in the watchlist, the button will show ```Remove from watchlist```, else ```Add to watchlist```.
+5. We take the reference to our database 
+```const coinRef = doc(db, "watchlist", user?.uid);```  where doc comes from ```"firebase/firestore";```
+6. We use the ```setDoc()``` method to add the coin to watchlist array(present in cryptoContext)
+7. ```setAlert``` is added for success and error.
+
+## Displaying coins on watchlist
+We need to set watchlist to add coins to our watchlist state, we are going to do that using [onSnapShot](https://firebase.google.com/docs/firestore/query-data/listen) 
+1. We will add ```onSnapShot()``` in our cryptoContext using a ```useEffect()``` hook.
+2. This ```onSnapShot()``` function will have ```coinRef``` and we will set watchlist like shown below 
+```setWatchList(coin.data().coins);``` where ```coin.data().coins``` will have all the coins fetched from firebase.
+
+## Remove from watchlist
+1. For remove from watchlist, we will use the same ```setDoc()``` method and we will all the coins except the ```coins.id``` coin using ```filter()``` function.
+2. Then we will ```{ merge: "true" }```
+3. Add the ````setAlert()``` for success and errors.
