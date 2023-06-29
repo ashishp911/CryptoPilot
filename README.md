@@ -259,5 +259,25 @@ Now I added ```onAuthStateChanged()``` to our cryptoContext page to keep a ```us
 
 ## Creating firestore database
 1. Go to firebase and open your project.
+2. Go to Firestore Database and click create your database.
+3. Select start in test mode.
+4. Select a zone
+5. Go to rules and add the following rules
 
+```
+rules_version = '2';
 
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+   	match /watchlist/{userId}{
+    allow read: if isLoggedIn(userId)
+    allow write: if request.auth.uid == userId
+    }
+  }
+  function isLoggedIn(userId){
+  	return request.auth.uid == userId
+  }
+}
+```
+6. This means that only authenticated user will have read write access.
