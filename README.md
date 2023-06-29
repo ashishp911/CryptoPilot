@@ -244,8 +244,10 @@ Now I added ```onAuthStateChanged()``` to our cryptoContext page to keep a ```us
 3. We use [Avartar](https://mui.com/material-ui/react-avatar/) from material UI for our image and we created a div for our watchlist.
 4. Our Avatar will have a onclick function ```toggleDrawer()``` which is used to open/close the drawer.
 5. Adding ```overflowY: "scroll"``` to our styles adds a scroller for the watchlist.
-6. Finally the logout button. 
-7. For logout, we use ```signOut()``` from ```firebase/auth```. And then we give the user alert using ```setAlert()```. 
+
+## Logout
+1. Finally the logout button. 
+2. For logout, we use ```signOut()``` from ```firebase/auth```. And then we give the user alert using ```setAlert()```. 
 
 ## Adding Google signup
 1. In ```AuthModal``` we will add a box(material UI) and add a Google button.
@@ -294,13 +296,25 @@ There will be a add to watchlist button in the Coin_info.js
 6. We use the ```setDoc()``` method to add the coin to watchlist array(present in cryptoContext)
 7. ```setAlert``` is added for success and error.
 
-## Displaying coins on watchlist
+## Getting coins on watchlist variable
 We need to set watchlist to add coins to our watchlist state, we are going to do that using [onSnapShot](https://firebase.google.com/docs/firestore/query-data/listen) 
 1. We will add ```onSnapShot()``` in our cryptoContext using a ```useEffect()``` hook.
 2. This ```onSnapShot()``` function will have ```coinRef``` and we will set watchlist like shown below 
 ```setWatchList(coin.data().coins);``` where ```coin.data().coins``` will have all the coins fetched from firebase.
 
 ## Remove from watchlist
+For removing coin we have a function ```removeFromWatchlist()```
 1. For remove from watchlist, we will use the same ```setDoc()``` method and we will all the coins except the ```coins.id``` coin using ```filter()``` function.
 2. Then we will ```{ merge: "true" }```
 3. Add the ````setAlert()``` for success and errors.
+
+## Displaying all the coins on user sidebar
+1. Now we want to fetch the coins from watchlist array and display it on the ```UserSidebar```
+2. So we map through our coins state and if that coin is present in the watchlist variable, we are going to render it in the userSidebar. (```if watchlist.includes(coin.?id) {}```)
+3. Then we will display the coin name and price of the coin.
+4. We will also have a delete button which i have used from
+``` npm i react-icons```
+5. Then I am using ```<AiFillDelete>``` as a delete button. This button will have a ```onClick``` which will have this function ```removeFromWatchlist(coin)```.
+6. This remove coins function will be similar to the coin in ```CoinInfo.js```.
+7. The delete button will remove the coin from the wachlist.
+ 

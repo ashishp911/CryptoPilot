@@ -170,9 +170,11 @@ export default function UserSidebar() {
                     if(watchList.includes(coin.id)){
                       return (
                         <div style={coinStyles}>
+                          {/* coin name */}
                           <span>
                             {coin.name}
                           </span>
+                          {/* coin price */}
                           <span style={{
                             display:"flex",
                             gap: 8,
