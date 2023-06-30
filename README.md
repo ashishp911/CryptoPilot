@@ -1,7 +1,21 @@
 # How to start and run the project 
-1. Open VS code or any of your favourite IDE
+Make sure you have [docker](https://www.docker.com/) installed on your machine. If not, download it from [Here](https://www.docker.com/products/docker-desktop/)  
+1. Open [VS code](https://code.visualstudio.com/download) or any of your [favourite IDE](https://www.techrepublic.com/article/best-ide-software/)
 2. Clone the project using the following command
-3. ```
+ 
+   ```https://github.com/ashishp911/CryptoPilot.git```
+
+3. Then build using the following command
+  
+    ```docker build -t my-react-app .```
+
+4. Run the project using the following command
+  
+   ```docker run -d -p 3001:3000 my-react-app```
+
+5.  Finally, open your favourite browser and go to
+
+    ```http://localhost:3001/```
   
 # Getting Started with CryptoPilot
 ## 1. Project file layout
