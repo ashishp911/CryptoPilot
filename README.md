@@ -3,19 +3,27 @@ Make sure you have [docker](https://www.docker.com/) installed on your machine. 
 1. Open [VS code](https://code.visualstudio.com/download) or any of your [favourite IDE](https://www.techrepublic.com/article/best-ide-software/)
 2. Clone the project using the following command
  
-   ```https://github.com/ashishp911/CryptoPilot.git```
+   ```
+   https://github.com/ashishp911/CryptoPilot.git
+   ```
 
-3. Then build using the following command
+4. Then build using the following command
   
-    ```docker build -t my-react-app .```
+    ```
+   docker build -t my-react-app .
+    ```
 
-4. Run the project using the following command
+6. Run the project using the following command
   
-   ```docker run -d -p 3001:3000 my-react-app```
+   ```
+   docker run -d -p 3001:3000 my-react-app
+   ```
 
-5.  Finally, open your favourite browser and go to
+8.  Finally, open your favourite browser and go to
 
-    ```http://localhost:3001/```
+    ```
+    http://localhost:3001/
+    ```
   
 # Getting Started with CryptoPilot
 ## 1. Project file layout
@@ -66,13 +74,13 @@ Header.js will be outside the routes, so that it will be displayed all through t
 We change the background color of the entire app to ```"#14161a"``` in app.js
 
 ## Header.js
-We use Appbar from material UI and Container(it ensures that the appbar is responsive).
-The appbar will contain Typography(for the title of our application) and a select tag(to select the currency).
+We use [Appbar](https://mui.com/material-ui/react-app-bar/) from material UI and Container (it ensures that the appbar is responsive).
+The appbar will contain [Typography](https://mui.com/material-ui/react-typography/)(for the title of our application) and a select tag(to select the currency).
 Flex : 1 for our typography indicates that the width of all other elements will be the same as their content, but the element with flex: 1 will be given the remaining full space.
 We wrap whole header with darkTheme.
 
 ## Context API
-Since we want the currency and symbol selected through the header for the entire application, we will use context API. We wrap our entire app within cryptocontext, from index.js. We export {currency, symbol, setCurrency}, so that any component can now use these states.
+Since we want the currency and symbol selected through the header for the entire application, we will use context API. We wrap our entire app within ```CryptoContext```, from ```index.js```. We export {currency, symbol, setCurrency}, so that any component can now use these states.
 
 ## Homepage
 Our homepage is divided into 2 parts, banner (upper part with carousel) and coint table (table with all trending coins.)
@@ -80,7 +88,7 @@ Our homepage is divided into 2 parts, banner (upper part with carousel) and coin
 ### Banner
 1. For the banner, we use background image as banner2.
 2. Banner has 3 parts, Name of the application (Typography), small description (Typography) and the carousel. I created a different react component for the carousel.
-3. All APIs are in Api.js
+3. All APIs are in ```api.js```
 ###  Carousel
 1. For carousel, we need the trendingCoins() api. This API takes currency as a parameter. We get the currency from context API. 
 2. Instead of fetch, I have used axios.get() to fetch data from the API.
@@ -169,10 +177,12 @@ npm i react-chartjs-2 chart.js
 # Firebase Integration
 1. Integrated [Firebase](https://medium.com/firebase-developers/what-is-firebase-the-complete-story-abridged-bcc730c5f2c0) with our react application.
 2. Installed firebase
-   ```npm install firebase```
-3. Created a [modal](https://mui.com/material-ui/react-modal/) (from material UI) which is a component that  provides a solid foundation for creating dialogs, popovers, lightboxes, or whatever else.
-4. Create [tabs](https://mui.com/material-ui/react-tabs/) from material UI to toggle between 1. Login and 2. Signup
-5. Created 2 components for login and signup.
+   ```
+   npm install firebase
+   ```
+4. Created a [modal](https://mui.com/material-ui/react-modal/) (from material UI) which is a component that  provides a solid foundation for creating dialogs, popovers, lightboxes, or whatever else.
+5. Create [tabs](https://mui.com/material-ui/react-tabs/) from material UI to toggle between 1. Login and 2. Signup
+6. Created 2 components for login and signup.
 
 ## Signup page
 1. We used material UI's Box to create a simple signup page with 3 textfields and 1 button.
@@ -212,12 +222,16 @@ Now I added ```onAuthStateChanged()``` to our cryptoContext page to keep a ```us
 ## Adding Google signup
 1. In ```AuthModal``` we will add a box(material UI) and add a Google button.
 2. We will add a library called react google button.
-  ```npm install react-google-button```
-3. ```GoogleButton``` will hve an onclick function.
-4. We added a ```SingnInWithGoogle()``` function.
-5. Inside this fucntion there will be ```signInWithPopup()``` which will take googleProvider and auth as parameters and googleProvider has be initialised as below
+  ```
+npm install react-google-button
+```
+4. ```GoogleButton``` will hve an onclick function.
+5. We added a ```SingnInWithGoogle()``` function.
+6. Inside this fucntion there will be ```signInWithPopup()``` which will take googleProvider and auth as parameters and googleProvider has be initialised as below
   
-  ```const googleProvider = new GoogleAuthProvider();```
+  ```
+  const googleProvider = new GoogleAuthProvider();
+```
 
 ## Creating firestore database
 1. Go to firebase and open your project.
@@ -252,9 +266,12 @@ There will be a add to watchlist button in the Coin_info.js
 3. ```inWatchList``` is a bool variable to check if the coin is already present in the watchlist.
 4. If the coin is already present in the watchlist, the button will show ```Remove from watchlist```, else ```Add to watchlist```.
 5. We take the reference to our database 
-```const coinRef = doc(db, "watchlist", user?.uid);```  where doc comes from ```"firebase/firestore";```
-6. We use the ```setDoc()``` method to add the coin to watchlist array(present in cryptoContext)
-7. ```setAlert``` is added for success and error.
+```
+const coinRef = doc(db, "watchlist", user?.uid);
+```
+where doc comes from ```"firebase/firestore";```
+7. We use the ```setDoc()``` method to add the coin to watchlist array(present in cryptoContext)
+8. ```setAlert``` is added for success and error.
 
 <img width="1128" alt="image" src="https://github.com/ashishp911/CryptoPilot/assets/62334020/b0466bac-a3e4-4b01-9a7c-454343a43550">
 
