@@ -231,12 +231,17 @@ npm i react-chartjs-2 chart.js
 7. If the account creation is successful, Firebase will return a user object containing information about the newly created user.
 8. Then we show the signup successful alert message using snackbar alert and close the modal using ```handleclose()``` which was taken as props from ```Authmodal```.
 
+<img width="276" alt="image" src="https://github.com/ashishp911/CryptoPilot/assets/62334020/40a89d83-6ed8-4fb2-8fdf-d74f94417b99">
+
+
 ## Login page
 1. Again we have used material UI's Box to create the login modal.
 2. The ```handleSubmit()``` is similar to that of Signup, the only difference is that instead of using ```createUserWithEmailAndPassword()```, we are using the ```signInWithEmailAndPassword()``` function, which also takes 3 arguments, auth, email and password.
 3. Error is thrown if the password is wrong.
-
 Now I added ```onAuthStateChanged()``` to our cryptoContext page to keep a ```user``` state to keep the information of the users that just logged in.
+
+<img width="312" alt="image" src="https://github.com/ashishp911/CryptoPilot/assets/62334020/594491c3-c544-4d17-bc2b-963974227321">
+
 
 ## UserSidebar
 1. For the sidebar, we used something called [material UI drawer](https://mui.com/material-ui/react-drawer/) 
@@ -245,9 +250,11 @@ Now I added ```onAuthStateChanged()``` to our cryptoContext page to keep a ```us
 4. Our Avatar will have a onclick function ```toggleDrawer()``` which is used to open/close the drawer.
 5. Adding ```overflowY: "scroll"``` to our styles adds a scroller for the watchlist.
 
-## Logout
+### Logout
 1. Finally the logout button. 
 2. For logout, we use ```signOut()``` from ```firebase/auth```. And then we give the user alert using ```setAlert()```. 
+
+<img width="1128" alt="image" src="https://github.com/ashishp911/CryptoPilot/assets/62334020/50e53463-d3b6-4762-8d20-c70e25656741">
 
 ## Adding Google signup
 1. In ```AuthModal``` we will add a box(material UI) and add a Google button.
@@ -296,6 +303,9 @@ There will be a add to watchlist button in the Coin_info.js
 6. We use the ```setDoc()``` method to add the coin to watchlist array(present in cryptoContext)
 7. ```setAlert``` is added for success and error.
 
+<img width="1128" alt="image" src="https://github.com/ashishp911/CryptoPilot/assets/62334020/b0466bac-a3e4-4b01-9a7c-454343a43550">
+
+
 ## Getting coins on watchlist variable
 We need to set watchlist to add coins to our watchlist state, we are going to do that using [onSnapShot](https://firebase.google.com/docs/firestore/query-data/listen) 
 1. We will add ```onSnapShot()``` in our cryptoContext using a ```useEffect()``` hook.
@@ -317,4 +327,7 @@ For removing coin we have a function ```removeFromWatchlist()```
 5. Then I am using ```<AiFillDelete>``` as a delete button. This button will have a ```onClick``` which will have this function ```removeFromWatchlist(coin)```.
 6. This remove coins function will be similar to the coin in ```CoinInfo.js```.
 7. The delete button will remove the coin from the wachlist.
+
+  <img width="1043" alt="image" src="https://github.com/ashishp911/CryptoPilot/assets/62334020/a72a6d84-deaa-4154-bc71-d38427b4e7de">
+
  
